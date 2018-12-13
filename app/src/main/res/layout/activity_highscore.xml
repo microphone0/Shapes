@@ -17,7 +17,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back_black_24dp"
-            android:backgroundTint="@color/Transparent" />
+            android:backgroundTint="@color/White" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/comingSoon"
+            android:text="@string/coming_soon"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="50sp"/>
 
     </RelativeLayout>
 

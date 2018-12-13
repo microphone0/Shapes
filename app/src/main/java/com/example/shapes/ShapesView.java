@@ -106,6 +106,9 @@ public class ShapesView extends SurfaceView implements Runnable {
     private void prepareLevel(){
         //Here we will initialize all the game objects
 
+        score = 0;
+        lives = 3;
+
         //Make a new player
         playerShape = new Shape(context, screenX, screenY);
 
@@ -266,9 +269,8 @@ public class ShapesView extends SurfaceView implements Runnable {
                            // Has the player won
                            if (score == numenemy * 10) {
                                paused = true;
-                               score = 0;
-                               lives = 3;
-                               prepareLevel();
+                               pause();
+                               //prepareLevel();
                            }
                        }
                    }
