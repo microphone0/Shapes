@@ -2,6 +2,7 @@ package com.example.shapes;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
@@ -16,9 +17,11 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.Button;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class ShapesView extends SurfaceView implements Runnable {
     Context context;
@@ -271,6 +274,7 @@ public class ShapesView extends SurfaceView implements Runnable {
                                paused = true;
                                pause();
                                //prepareLevel();
+
                            }
                        }
                    }
@@ -333,6 +337,7 @@ public class ShapesView extends SurfaceView implements Runnable {
     //shutdown thread
     public void pause(){
         playing = false;
+        gameThread.interrupt();
         try{
             gameThread.join();
         }catch(InterruptedException e){
@@ -348,7 +353,6 @@ public class ShapesView extends SurfaceView implements Runnable {
         gameThread.start();
     }
 
-
     //The SurfaceView class implements onTouchListener
     //So we can override this method and detect screen touches.
     @Override
@@ -356,7 +360,6 @@ public class ShapesView extends SurfaceView implements Runnable {
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
             //Player has touched the screen
             case MotionEvent.ACTION_DOWN:
-
                 paused = false;
 
                 //Shoot the bullet

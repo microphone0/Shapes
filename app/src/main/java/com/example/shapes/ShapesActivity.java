@@ -1,6 +1,7 @@
 package com.example.shapes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
@@ -38,5 +39,9 @@ public class ShapesActivity extends Activity {
         super.onPause();
 
         shapesView.pause();
+
+        Intent intent = new Intent(ShapesActivity.this, MenuActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
