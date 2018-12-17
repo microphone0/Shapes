@@ -272,8 +272,8 @@ public class ShapesView extends SurfaceView implements Runnable {
                            // Has the player won
                            if (score == numenemy * 10) {
                                paused = true;
-                               pause();
-                               //prepareLevel();
+                               //pause();
+                               prepareLevel();
 
                            }
                        }
